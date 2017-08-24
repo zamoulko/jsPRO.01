@@ -1,8 +1,11 @@
 let showList = data =>{
-    console.log(data,data.length);
+    let div = document.querySelector('div#place-for-list');
+    div.innerHTML = '';
     data.response.length && data.response.forEach( el => {
-            document.querySelector('div#place-for-list').innerHTML
-                += '<div class="row">'
+            div.innerHTML
+                += '<div class="row" data-user-id="'
+                + el.user_id
+                +'">'
                 + '<img src="'
                 + el.photo
                 + '"/>'
@@ -10,26 +13,29 @@ let showList = data =>{
                 + ' '
                 + el.last_name
                 + '</div>';
-            console.log(el);
         }
     );
+    let script = document.querySelector('head').querySelector('script#jsonp-remove');
+    script.parentElement.removeChild(script);
 };
 ;(x=>{
         "use strict";
 
     let main = event => {
         "use strict";
-        let url = 'https://api.vk.com/method/friends.get?user_id=36203173&fields=photo?callback=showList';
-        console.log('-=*=-');
         document.querySelector('button#get-friends').addEventListener('click',button);
+        document.querySelector('div#place-for-list').addEventListener('click',button);
     };
 
     let button = event => {
         var script = document.createElement('script');
-        script.src = 'https://api.vk.com/method/friends.get?user_id=36203173&fields=photo&callback=showList';
-
+        let item = event.target;
+        let data = item.dataset;
+        let userId = data.userId || 14032463;
+        script.src = 'https://api.vk.com/method/friends.get?user_id='+userId+'&fields=photo&callback=showList';
+        script.id = 'jsonp-remove';
+        console.log(script,userId,item);
         document.getElementsByTagName('head')[0].appendChild(script);
-        console.log('+');
     };
     document.addEventListener('DOMContentLoaded',main);
 }
