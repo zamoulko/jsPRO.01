@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>View.js</title>
+    <script src="https://unpkg.com/vue"></script>
+</head>
+<body>
+<div id="vuejs">
+    <input type="text" v-model="newTodo"><span v-on:click="addItem" title="+"><img :src="plusImg"></span>
+    <ul>
+        <li v-for="todos in todo">{{todos.name}}</li>
+    </ul>
+</div>
+<script src="js/vue.js"></script>
+
+</body>
+</html>
