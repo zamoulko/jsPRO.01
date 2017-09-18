@@ -4,10 +4,13 @@
     <meta charset="UTF-8">
     <title>View.js</title>
     <script src="https://unpkg.com/vue"></script>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.6/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script>
-    <script src="//use.edgefonts.net/vast-shadow:n4:all.js"></script>
-    <script src="//use.edgefonts.net/vast-shadow:n4:all;megrim.js"></script>
+
+    <script src="https://unpkg.com/react@15.3.2/dist/react.js"></script>
+    <script src="https://unpkg.com/react-dom@15.3.2/dist/react-dom.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
     <link rel="stylesheet" href="css/fw.css">
 </head>
 <body ng-app>
@@ -35,4 +38,34 @@
     <script src="js/angular.js"></script>
 </div>
 <div class="column">
+    <h1>React</h1>
+    <div id="container">
+    </div>
+    <script type="text/babel">
+        var TodoList = React.createClass({
+            render: function() {
+                return (
+                        <div className="todoListMain">
+                            <div className="header">
+                                <form>
+                                    <input placeholder="enter task">
+                                    </input>
+                                    <button onClick="addItemReact()">add</button>
+                                </form>
+                            </div>
+                        </div>
+                );
+            }
+        });
+
+        var destination = document.querySelector("#container");
+        ReactDOM.render(
+                <div>
+                    <TodoList/>
+                </div>,
+            destination
+        );
+    </script>
+    <script src="js/react.js"></script>
+</div>
 </body>
