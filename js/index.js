@@ -40,5 +40,7 @@ let showList = data =>{
     };
     document.addEventListener('DOMContentLoaded',main);
     // https://davids-restaurant.herokuapp.com/menu_items.json
+    // https://davids-restaurant.herokuapp.com/categories.json
+    // https://davids-restaurant.herokuapp.com/menu_items.json?category=L
 }
 )();
