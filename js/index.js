@@ -17,6 +17,7 @@ let showList = data =>{
     );
     let script = document.querySelector('head').querySelector('script#jsonp-remove');
     script.parentElement.removeChild(script);
+    console.log(data.response);
 };
 ;(x=>{
         "use strict";
@@ -32,11 +33,12 @@ let showList = data =>{
         let item = event.target;
         let data = item.dataset;
         let userId = data.userId || 14032463;
-        script.src = 'https://api.vk.com/method/friends.get?user_id='+userId+'&fields=photo&callback=showList';
+        script.src = 'https://api.vk.com/method/friends.get?user_id='+userId+'&fields=photo,sex,bdate&callback=showList';
         script.id = 'jsonp-remove';
         console.log(script,userId,item);
         document.getElementsByTagName('head')[0].appendChild(script);
     };
     document.addEventListener('DOMContentLoaded',main);
+    // https://davids-restaurant.herokuapp.com/menu_items.json
 }
 )();
