@@ -1,5 +1,5 @@
 module.exports = {
-    watch: true,
+    // watch: true,
     entry: "./js/src/app.js",
     output: {
         path: __dirname + '/js/bundle',
